@@ -1,9 +1,9 @@
 import { Button } from "components/button";
 import { useAuth } from "contexts/authContext";
-import React from "react";
+import React, { Fragment } from "react";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Menu } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import { signOut } from "firebase/auth";
 import { auth } from "firebaseApp/configFirebase";
 
@@ -77,6 +77,17 @@ const HeaderStyle = styled.div`
     margin-left: 20px;
     max-width: 150px;
     height: 56px;
+  }
+  @media screen and (max-width: 1023.98px) {
+    .logo {
+      max-width: 30px;
+    }
+    .menu,
+    .search,
+    .header-button,
+    .header-auth {
+      display: none;
+    }
   }
 `;
 
@@ -164,31 +175,41 @@ const Header = () => {
                 <Menu.Button>
                   <strong className="">{userInfo?.displayName}</strong>
                 </Menu.Button>
-                <Menu.Items className="absolute w-[150px] text-[16px] max-h-fit p-5 rounded-lg flex flex-col bg-white items-start border border-slate-100 shadow-lg transition-all ease-linear duration-200 cursor-pointer gap-y-2 ">
-                  <Menu.Item className="hover:text-[#2EBAC1] transition-all ease-out duration-200">
-                    {({ active }) => (
-                      <span
-                        className={`${active && "bg-blue-500"}`}
-                        onClick={() => navigate("/dashboard")}
-                      >
-                        Dashboard
-                      </span>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item className="text-red-600 hover:text-[#2EBAC1] transition-all ease-out duration-200">
-                    {({ active }) => (
-                      <span
-                        className={`${active && "bg-blue-500"}`}
-                        onClick={() => {
-                          signOut(auth);
-                          navigate("/");
-                        }}
-                      >
-                        Logout
-                      </span>
-                    )}
-                  </Menu.Item>
-                </Menu.Items>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-200"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute w-[150px] text-[16px] max-h-fit p-5 rounded-lg flex flex-col bg-white items-start border border-slate-100 shadow-lg transition-all ease-linear duration-200 cursor-pointer gap-y-2 ">
+                    <Menu.Item className="hover:text-[#2EBAC1] transition-all ease-out duration-200">
+                      {({ active }) => (
+                        <span
+                          className={`${active && "bg-blue-500"}`}
+                          onClick={() => navigate("/dashboard")}
+                        >
+                          Dashboard
+                        </span>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item className="text-red-600 hover:text-[#2EBAC1] transition-all ease-out duration-200">
+                      {({ active }) => (
+                        <span
+                          className={`${active && "bg-blue-500"}`}
+                          onClick={() => {
+                            signOut(auth);
+                            navigate("/");
+                          }}
+                        >
+                          Logout
+                        </span>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
               </Menu>
             </div>
           )}

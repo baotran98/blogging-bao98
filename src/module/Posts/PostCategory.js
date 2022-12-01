@@ -10,6 +10,7 @@ const PostCategoryStyle = styled.div`
   font-size: 14px;
   font-weight: 600;
   background-color: #ffffff;
+  white-space: nowrap;
   /* white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -19,6 +20,9 @@ const PostCategoryStyle = styled.div`
     css`
       background-color: #f3edff;
     `}
+  @media screen and (max-width: 1023.98px) {
+    font-size: 10px;
+  }
 `;
 
 const PostCategory = ({ children, typeColor = "", className = "" }) => {

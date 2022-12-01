@@ -22,9 +22,9 @@ export const statusCate = {
   UNAPPROVED: 2, // ko thành công
 };
 export const statusUser = {
-  ACTIVE: 1,
-  PENDING: 2,
-  BAN: 3,
+  ACTIVE: 1, // kích hoạt
+  PENDING: 2, // đang chờ
+  BAN: 3, // khóa
 };
 export const roleUser = {
   ADMIN: 1,

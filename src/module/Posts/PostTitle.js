@@ -17,6 +17,9 @@ const PostTitleStyle = styled.h3`
     props.size === "big" &&
     css`
       font-size: 22px;
+      @media screen and (max-width: 1023.98px) {
+        font-size: 16px;
+      }
     `};
 `;
 

@@ -35,6 +35,13 @@ const CarouselHomeStyle = styled.div`
     &__right {
     }
   }
+  @media screen and (max-width: 1023.98px) {
+    .carousel {
+      &__right {
+        display: none;
+      }
+    }
+  }
 `;
 
 const HomeCarousel = () => {

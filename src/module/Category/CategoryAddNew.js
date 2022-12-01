@@ -125,7 +125,7 @@ const CategoryAddNew = () => {
           isLoading={loading}
           disabled={loading}
         >
-          Add new category
+          Add category
         </Button>
       </form>
     </div>

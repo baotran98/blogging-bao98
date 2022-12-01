@@ -250,11 +250,11 @@ const PostAddNew = () => {
         <Button
           colorMain="primary"
           type="submit"
-          className="mx-auto"
+          className="mx-auto max-w-[250px]"
           isLoading={loading}
           disabled={loading}
         >
-          Add new post
+          Add post
         </Button>
       </form>
     </PostAddNewStyles>

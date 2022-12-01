@@ -58,20 +58,20 @@ const PostFeatureItemStyles = styled.div`
       text-overflow: ellipsis;
       max-width: 100px;
     }
-    &-info {
-    }
-    &-dot {
-    }
-    &-title {
-    }
   }
 
   @media screen and (min-width: 1024px) {
     height: 272px;
   }
+  @media screen and (max-width: 1023.98px) {
+    .post {
+      &-content {
+        padding: 15px;
+      }
+    }
+  }
 `;
 const PostFeatureItem = ({ data }) => {
-  console.log(data);
   const { category, user } = data;
   const navigate = useNavigate();
 

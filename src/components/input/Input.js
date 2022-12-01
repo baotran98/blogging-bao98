@@ -21,9 +21,15 @@ const InputStyle = styled.div`
     border-color: ${(props) => props.theme.primary};
   }
   .input::-webkit-input-placeholder {
+    @media screen and (max-width: 1023.98px) {
+      font-size: 12px;
+    }
     color: "#84878B";
   }
   .input::-moz-input-placeholder {
+    @media screen and (max-width: 1023.98px) {
+      font-size: 12px;
+    }
     color: "#84878B";
   }
   .icon-style {

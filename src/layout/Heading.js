@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 const HeadingStyles = styled.h2`
-  color: ${(props) => props.theme.tertiary};
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    ${(props) => props.theme.primaryMain},
+    ${(props) => props.theme.secondary}
+  );
   font-size: 28px;
   position: relative;
   margin-bottom: 30px;
   margin-top: 50px;
-  /* font-family: "Montserrat", sans-serif; */
   &:before {
     content: "";
     width: 50px;
@@ -17,6 +23,10 @@ const HeadingStyles = styled.h2`
     left: 0;
     border-radius: 10px;
     transform: translate(0, -150%);
+  }
+  @media screen and (max-width: 1023.98px) {
+    font-size: 22px;
+    margin-bottom: 20px;
   }
 `;
 const Heading = ({ className = "", children }) => {

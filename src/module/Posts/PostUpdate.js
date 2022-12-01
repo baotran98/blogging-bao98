@@ -83,7 +83,6 @@ const PostUpdate = () => {
         reset(singleDoc.data());
         setSelectCategory(singleDoc.data()?.category || "");
         setContent(singleDoc.data()?.content || "");
-        console.log(singleDoc.data());
       }
     }
     fetchPost();

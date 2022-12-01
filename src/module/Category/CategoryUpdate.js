@@ -59,7 +59,6 @@ const CategoryUpdate = () => {
       });
       toast.success("Update category succesfully");
       navigate("/manage/category");
-      console.log(values);
     } catch (error) {
       toast.error(error.message);
     }
@@ -124,7 +123,7 @@ const CategoryUpdate = () => {
         <Button
           type="submit"
           colorMain="primary"
-          className="mx-auto"
+          className="mx-auto max-w-[250px]"
           isLoading={isSubmitting}
           disabled={isSubmitting}
         >

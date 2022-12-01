@@ -218,7 +218,7 @@ const UserAddNew = () => {
           isLoading={loading}
           disabled={loading}
         >
-          Add new user
+          Add user
         </Button>
       </form>
     </>
