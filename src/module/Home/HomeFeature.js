@@ -1,3 +1,5 @@
+import { LoadingSkeleton } from "components/loading";
+import LoadingPage from "components/loading/LoadingPage";
 import {
   collection,
   limit,
@@ -14,40 +16,52 @@ const HomeFeatureStyles = styled.div``;
 
 const HomeFeature = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const colRef = collection(db, "posts");
-    const queries = query(
-      colRef,
-      where("status", "==", 1),
-      where("hot", "==", true),
-      limit(3)
-    );
-    onSnapshot(queries, (snapshot) => {
-      let result = [];
-      snapshot.forEach((doc) => {
-        result.push({
-          id: doc.id,
-          ...doc.data(),
+    setLoading(true);
+    try {
+      const colRef = collection(db, "posts");
+      const queries = query(
+        colRef,
+        where("status", "==", 1),
+        where("hot", "==", true),
+        limit(3)
+      );
+      onSnapshot(queries, (snapshot) => {
+        let result = [];
+        snapshot.forEach((doc) => {
+          result.push({
+            id: doc.id,
+            ...doc.data(),
+          });
         });
+        setPosts(result);
       });
-      setPosts(result);
-    });
+    } catch (error) {
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   if (posts.length <= 0) return null;
 
   return (
-    <HomeFeatureStyles className="home-block">
-      <div className="container">
-        <Heading>Bài viết nổi bật</Heading>
-        <div className="grid-layout">
-          {posts.map((item) => (
-            <PostFeatureItem key={item.id} data={item} />
-          ))}
+    <>
+      <HomeFeatureStyles className="home-block">
+        <div className="container">
+          <Heading>Bài viết nổi bật</Heading>
+          <div className="grid-layout">
+            {loading && <LoadingPage />}
+            {!loading &&
+              posts.map((item) => (
+                <PostFeatureItem key={item.id} data={item} />
+              ))}
+          </div>
         </div>
-      </div>
-    </HomeFeatureStyles>
+      </HomeFeatureStyles>
+    </>
   );
 };
 

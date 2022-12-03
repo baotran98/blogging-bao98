@@ -1,10 +1,12 @@
-import { Table } from "components/table";
-import React from "react";
+import DashboardHeading from "module/Dashboard/DashboardHeading";
 
 const DashboardPage = () => {
   return (
     <div>
-      <h1 className="dashboard-heading">Dashboard page</h1>
+      <DashboardHeading
+        title="Dashboard"
+        desc="Overview dashboard monitor"
+      ></DashboardHeading>
     </div>
   );
 };

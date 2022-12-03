@@ -201,7 +201,7 @@ const PostUpdate = () => {
     <PostAddNewStyles>
       <h1 className="dashboard-heading">Edit info post</h1>
       <form onSubmit={handleSubmit(updatePost)}>
-        <div className="grid grid-cols-2 mb-10 gap-x-10">
+        <div className="grid mb-10 lg:grid-cols-2 gap-x-10">
           <Field>
             <Label htmlFor="title">Title</Label>
             <Input
@@ -225,7 +225,7 @@ const PostUpdate = () => {
             ></Input>
           </Field>
         </div>
-        <div className="grid grid-cols-2 mb-10 gap-x-10">
+        <div className="grid mb-10 lg:grid-cols-2 gap-x-10">
           <Field>
             <Label>Status</Label>
             <div className="flex items-center gap-x-5">
@@ -270,16 +270,7 @@ const PostUpdate = () => {
             />
           </Field>
         </div>
-        <div className="grid grid-cols-2 mb-2 gap-x-10">
-          <Field>
-            <Label htmlFor="image">Image</Label>
-            <ImageUpload
-              onChange={handleImage}
-              progress={progress}
-              image={image}
-              handleDelImage={handleDelImage}
-            />
-          </Field>
+        <div className="grid mb-2 lg:grid-cols-2 gap-x-10">
           <Field>
             <Label htmlFor="category">Category</Label>
             <Dropdown id="category">
@@ -301,6 +292,15 @@ const PostUpdate = () => {
                 {selectCategory?.name}
               </span>
             )}
+          </Field>
+          <Field>
+            <Label htmlFor="image">Image</Label>
+            <ImageUpload
+              onChange={handleImage}
+              progress={progress}
+              image={image}
+              handleDelImage={handleDelImage}
+            />
           </Field>
         </div>
         <div className="flex flex-col mb-16 gap-y-5">

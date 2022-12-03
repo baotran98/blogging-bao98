@@ -29,6 +29,7 @@ const DashboardStyles = styled.div`
       padding: 40px 20px;
       gap: 0 40px;
       align-items: start;
+      margin-top: 100px;
     }
     @media screen and (max-width: 1023.98px) {
       &-heading {

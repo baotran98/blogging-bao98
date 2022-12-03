@@ -22,6 +22,11 @@ const NotFoundStyle = styled.div`
     display: inline-block;
     max-width: 200px;
   }
+  @media screen and (max-width: 1023.98px) {
+    .title {
+      font-size: 30px;
+    }
+  }
 `;
 
 const NotFoundPage = () => {
@@ -34,7 +39,9 @@ const NotFoundPage = () => {
           alt="monkey-blogging"
         />
       </NavLink>
-      <h1 className="title">Oops! Page Not Found</h1>
+      <h1 className="transition-all duration-200 ease-in-out title">
+        Oops! Page Not Found
+      </h1>
       <Button type="button" className="back" colorMain="primary">
         <NavLink to="/">Back to home</NavLink>
       </Button>

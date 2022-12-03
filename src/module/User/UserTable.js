@@ -112,7 +112,7 @@ const UserTable = ({ filter }) => {
               <tr key={u.id}>
                 <th title={u.id}>{u.id.slice(0, 5) + "..."}</th>
                 <th className="whitespace-nowrap">
-                  <div className="flex items-center justify-center gap-x-2">
+                  <div className="flex items-center gap-x-2">
                     <img
                       className="flex-shrink-0 object-cover w-10 h-10 rounded-md shadow-md"
                       src={

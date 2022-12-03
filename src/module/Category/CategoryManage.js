@@ -109,19 +109,19 @@ const CategoryManage = () => {
   return (
     <div>
       <DashboardHeading title="Categories" />
-      <div className="flex items-center justify-between mb-5">
+      <div className="items-center mb-5 lg:flex lg:justify-between">
         <Button
           onClick={() => {
             navigate("/manage/add-category");
           }}
           type="button"
           colorMain="primary"
-          className="max-w-[230px]"
+          className="lg:max-w-[200px] mb-3"
         >
           Create category
         </Button>
         <input
-          className="px-4 py-3 font-medium border-2 rounded-md shadow-sm border-slate-400 focus:border-[#00a7b4] transition-all ease-in-out duration-300"
+          className="px-4 py-3 w-full lg:w-[200px] mb-3 font-medium border-2 rounded-md shadow-sm border-slate-400 focus:border-[#00a7b4] transition-all ease-in-out duration-300"
           type="text"
           placeholder="Search category here..."
           onChange={filterCateDebounce}

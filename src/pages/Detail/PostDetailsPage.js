@@ -57,6 +57,7 @@ const PostDetailsPageStyles = styled.div`
       height: 100%;
       object-fit: cover;
       border-radius: inherit;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     }
     &-content {
       flex: 1;

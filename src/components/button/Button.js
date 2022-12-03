@@ -2,7 +2,6 @@ import { LoadingSpinner } from "components/loading";
 import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 
 const ButtonStyle = styled.button`
   display: flex;
@@ -46,6 +45,10 @@ const ButtonStyle = styled.button`
     opacity: 0.5;
     cursor: no-drop;
   }
+  @media screen and (max-width: 1023.98px) {
+    font-size: 16px;
+    min-width: 150px;
+  }
 `;
 
 /**
@@ -60,6 +63,7 @@ const Button = ({
   type = "button",
   onClick = () => {},
   colorMain = "",
+
   ...props
 }) => {
   const { isLoading, to } = props;

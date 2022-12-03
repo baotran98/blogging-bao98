@@ -1,3 +1,4 @@
+import { LoadingSkeleton } from "components/loading";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "firebaseApp/configFirebase";
 import React, { useEffect, useState } from "react";
@@ -82,23 +83,25 @@ const PostFeatureItem = ({ data }) => {
   const formatDate = new Date(date).toLocaleDateString("vi-VI");
 
   return (
-    <PostFeatureItemStyles>
-      <PostImage url={data.image} alt="unsplash" className="post-image" />
-      <div className="post-overlay"></div>
-      <div className="post-content">
-        <div className="post-top">
-          {data.category?.name && (
-            <PostCategory typeColor="primary">{category?.name}</PostCategory>
-          )}
-          <PostMeta author={user?.fullname} date={formatDate}></PostMeta>
-          {/* <PostMeta author={data.author} date={formatDate}></PostMeta> */}
-          {/* className="post-info" */}
+    <>
+      <PostFeatureItemStyles>
+        <PostImage url={data.image} alt="unsplash" className="post-image" />
+        <div className="post-overlay"></div>
+        <div className="post-content">
+          <div className="post-top">
+            {data.category?.name && (
+              <PostCategory typeColor="primary">{category?.name}</PostCategory>
+            )}
+            <PostMeta author={user?.fullname} date={formatDate}></PostMeta>
+            {/* <PostMeta author={data.author} date={formatDate}></PostMeta> */}
+            {/* className="post-info" */}
+          </div>
+          <PostTitle size={"big"} to={data.slug}>
+            {data.title}
+          </PostTitle>
         </div>
-        <PostTitle size={"big"} to={data.slug}>
-          {data.title}
-        </PostTitle>
-      </div>
-    </PostFeatureItemStyles>
+      </PostFeatureItemStyles>
+    </>
   );
 };
 

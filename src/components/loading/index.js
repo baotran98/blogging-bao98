@@ -1,3 +1,4 @@
 import LoadingSpinner from "./LoadingSpinner";
+import LoadingSkeleton from "./LoadingSkeleton";
 
-export { LoadingSpinner };
+export { LoadingSpinner, LoadingSkeleton };

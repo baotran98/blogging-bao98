@@ -128,7 +128,7 @@ const PostManage = () => {
   return (
     <div>
       <DashboardHeading title="Manage posts" />
-      <div className="flex items-center justify-end mb-5">
+      <div className="flex items-center mb-5 lg:justify-end">
         {/* <Button
           onClick={() => {
             navigate("/manage/add-category");
@@ -140,7 +140,7 @@ const PostManage = () => {
           Add new post
         </Button> */}
         <input
-          className="px-4 py-3 font-medium border-2 rounded-md shadow-sm border-slate-400 focus:border-[#00a7b4] transition-all ease-in-out duration-300"
+          className="px-4 py-3 lg:w-[200px] w-full font-medium border-2 rounded-md shadow-sm border-slate-400 focus:border-[#00a7b4] transition-all ease-in-out duration-300"
           type="text"
           placeholder="Search post here..."
           onChange={handleSearchPost}
@@ -163,7 +163,7 @@ const PostManage = () => {
               <tr key={p.id}>
                 <th title={p.id}>{p.id.slice(0, 5) + "..."}</th>
                 <td>
-                  <div className="flex items-center gap-x-3">
+                  <div className="items-center lg:flex gap-x-3">
                     <img
                       src={
                         p.image

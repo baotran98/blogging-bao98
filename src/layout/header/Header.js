@@ -15,12 +15,12 @@ const menuList = [
   },
   {
     id: 2,
-    url: "/blog",
+    url: "/",
     title: "Blog",
   },
   {
     id: 3,
-    url: "/contact",
+    url: "/",
     title: "Contact",
   },
 ];
@@ -80,7 +80,7 @@ const HeaderStyle = styled.div`
   }
   @media screen and (max-width: 1023.98px) {
     .logo {
-      max-width: 30px;
+      max-width: 60px;
     }
     .menu,
     .search,
@@ -91,10 +91,10 @@ const HeaderStyle = styled.div`
   }
 `;
 
-function getLastName(name) {
-  const length = name?.split(" ").length;
-  return name?.split(" ")[length - 1];
-}
+// function getLastName(name) {
+//   const length = name?.split(" ").length;
+//   return name?.split(" ")[length - 1];
+// }
 
 const Header = () => {
   const { userInfo } = useAuth();
@@ -115,7 +115,10 @@ const Header = () => {
             {menuList.length > 0 &&
               menuList.map((item) => (
                 <li className="menu__item" key={item.id}>
-                  <NavLink to={item.url} className="menu__link">
+                  <NavLink
+                    to={item.url}
+                    className="px-3 py-0 transition-all duration-300 ease-linear rounded-full menu__link hover:py-3 hover:bg-primary-gradient hover:text-white"
+                  >
                     {item.title}
                   </NavLink>
                 </li>

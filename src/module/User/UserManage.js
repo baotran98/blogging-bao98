@@ -16,19 +16,19 @@ const UserManage = () => {
   return (
     <div>
       <DashboardHeading title="Manage users" />
-      <div className="flex items-center justify-between mb-5">
+      <div className="items-center mb-5 lg:flex lg:justify-between">
         <Button
           onClick={() => {
             navigate("/manage/add-user");
           }}
           type="button"
           colorMain="primary"
-          className="max-w-[200px]"
+          className="lg:max-w-[200px] mb-3"
         >
           Create user
         </Button>
         <input
-          className="px-4 py-3 font-medium border-2 rounded-md shadow-sm border-slate-400 focus:border-[#00a7b4] transition-all ease-in-out duration-300"
+          className="px-4 py-3 w-full mb-3 lg:w-[200px] font-medium border-2 rounded-md shadow-sm border-slate-400 focus:border-[#00a7b4] transition-all ease-in-out duration-300"
           type="text"
           placeholder="Search user here..."
           onChange={searchUserDebounce}

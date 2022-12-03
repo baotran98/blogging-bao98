@@ -8,6 +8,7 @@ const PostImageStyle = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 `;
 
